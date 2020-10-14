@@ -15,29 +15,29 @@ let initialId = 2;
 
 app.get("/items", (req, res) => {
     return res.send(items);
-})
+});
 
 app.post("/items", (req, res) => {
     initialId = initialId + 1;
     let newItem = {...req.body, id: initialId}
     items.push(newItem);
     return res.send(items);
-})
+});
 
-app.delete("/item/:i", (req, res) => {
+app.delete("/items/:i", (req, res) => {
     items = items.filter(item => item.id != Number(req.params.i));
     return res.send(items);
-})
+});
 
-app.patch("/item/:i", (req, res) => {
+app.patch("/items/:i", (req, res) => {
     items = items.map(item => {
         if(item.id === Number(req.params.i)) {
             item.value = req.body.value;
         }
         return item;
-    })
+    });
    return res.send(items);
-})
+});
 
 app.patch("/item-done/:i", (req, res) => {
     items = items.map(item => {
@@ -48,9 +48,9 @@ app.patch("/item-done/:i", (req, res) => {
             }
         }
         return item;
-    })
+    });
    return res.send(items);
-})
+});
 
 app.patch("/item-progress/:i", (req, res) => {
     items = items.map(item => {
@@ -61,11 +61,11 @@ app.patch("/item-progress/:i", (req, res) => {
             }
         }
         return item;
-    })
+    });
    return res.send(items);
-})
+});
 
 app.listen(8080, (err) => {
     if(err) console.log("Something went wrong: " + err)
     else console.log("Server is running on port 8080")
-})
+});

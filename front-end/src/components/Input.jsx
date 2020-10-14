@@ -38,7 +38,8 @@ export default class Input extends Component {
             backgroundColor: "#FDFBFB",
             borderRadius: ".4rem",
             fontFamily: "Roboto Mono"}}
-            defaultValue={this.state.value} 
+            defaultValue={this.state.value}
+            placeholder="Type in a new task here :)" 
             ></input>
       )
   }

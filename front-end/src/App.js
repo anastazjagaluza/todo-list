@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import ListPage from './components/pages/ListPage';
-import ScorePage from './components/pages/ScorePage';
+import ListPage from './pages/ListPage';
+import ScorePage from './pages/ScorePage';
 import {
   BrowserRouter as Router,
   Switch,

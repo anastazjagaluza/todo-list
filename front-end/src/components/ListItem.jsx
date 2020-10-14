@@ -24,15 +24,15 @@ export default class ListItem extends Component {
           iterations: 1 });
     }
 
-    handleDoneChange(value){
-        if(!this.props.new) {
+    handleDoneChange(value) {
+        if (!this.props.new) {
         this.setState({done: value});
         this.props.onUpdateDoneStatus(value)}
         else return;
     }
 
-    handleProgressChange(value){
-        if(!this.props.new) {
+    handleProgressChange(value) {
+        if (!this.props.new) {
         this.setState({progress: value});
         this.props.onUpdateProgress(value);
         }
@@ -41,7 +41,6 @@ export default class ListItem extends Component {
 
     render() {
         const canDelete = this.props.canDelete;
-        console.log(this.props.done, this.props.progress, this.props.id);
 
         return (
             <div style={{
@@ -55,9 +54,7 @@ export default class ListItem extends Component {
                 <Input onUpdatedValue={(value) => this.updateValue(value)} onCreatedValue={(value) => this.createValue(value)} value={this.props.value}/>
                 <span onClick={this.dispatchDelete} onMouseOver={(e) => this.toggle(e)} style={{
                     cursor: "pointer",
-                    visibility: !canDelete ? "hidden" : "visible"
-                }}
-          >x</span>
+                    visibility: !canDelete ? "hidden" : "visible"}}>x</span>
             </div>
         )
     }

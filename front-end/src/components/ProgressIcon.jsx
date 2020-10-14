@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
 
 export default class ProgressIcon extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            backgroundColor: "#fff",
-        }
-    }
-
-    componentWillMount() {
-        let background;
-        if(this.props.progress) {
-            background = "#FEFBA9";
-        } 
-        else {  
-            background = "#fff";
-        }
-        this.setState({backgroundColor: background})
-    }
-
     async change(e) {
         let background;
-        if(!this.props.progress) {
+        if (!this.props.progress) {
             background = "#FEFBA9";
         } 
         else {  
@@ -42,10 +24,10 @@ export default class ProgressIcon extends Component {
     }
 
 
-  render(){
+  render() {
       return (
           <div onClick={(e) => this.change(e)} style={{
-            backgroundColor: this.state.backgroundColor,
+            backgroundColor: this.props.progress ? "#FEFBA9" : "#fff",
             borderWidth: "4px",
             borderStyle: "solid",
             borderColor: "#FEFBA9",
@@ -58,10 +40,7 @@ export default class ProgressIcon extends Component {
             cursor: "pointer",
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "center"
-        }
-          }>...
-          </div>
+            justifyContent: "center"}}>...</div>
       )
   }
 }

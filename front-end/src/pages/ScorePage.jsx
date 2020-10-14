@@ -11,11 +11,17 @@ export default class ListPage extends Component {
     }
 
 async componentDidMount() {
-     let res = await fetch("http://localhost:8080/items");
-     let items = await res.json();
-     let inProgress = items.filter(item => item.progress)
-     let doneTasks = items.filter(item => item.done)
-     this.setState({items: items, inProgress: inProgress.length, doneTasks: doneTasks.length});
+    const res = await fetch("http://localhost:8080/items");
+    const items = await res.json();
+    let inProgress = [];
+    let doneTasks = [];
+    items.map(item => {
+        if(item.progress) {
+            inProgress.push(item);
+        } else if (item.done) {
+            doneTasks.push(item);
+        }})
+    this.setState({items: items, inProgress: inProgress.length, doneTasks: doneTasks.length});
 }
 
 render() {
