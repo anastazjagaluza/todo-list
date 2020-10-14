@@ -38,6 +38,7 @@ async updateValue(v, i) {
     body: JSON.stringify({value: v})
    })
    let newItems = await res.json();
+   this.setState({items: newItems});
 }
 
 async updateDone(v, i) {
