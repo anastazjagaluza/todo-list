@@ -19,7 +19,7 @@ export default class Input extends Component {
 
 async updateValue(e) {
   const newValue = e.target.value;
-  if(this.state.value != undefined) {
+  if(this.state.value !== undefined) {
   await this.setState({value: newValue});
   this.props.onUpdatedValue(newValue);
 }
