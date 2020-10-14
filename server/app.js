@@ -21,7 +21,6 @@ app.post("/items", (req, res) => {
     initialId = initialId + 1;
     let newItem = {...req.body, id: initialId}
     items.push(newItem);
-    console.log(items);
     return res.send(items);
 })
 
@@ -37,7 +36,6 @@ app.patch("/item/:i", (req, res) => {
         }
         return item;
     })
-   console.log(items);
    return res.send(items);
 })
 
