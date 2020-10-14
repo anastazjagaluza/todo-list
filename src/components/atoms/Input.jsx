@@ -14,16 +14,16 @@ export default class Input extends Component {
   if(this.state.value === undefined && e.keyCode === 13) {
   e.target.value = "";
   this.props.onCreatedValue(newValue);
+    }
   }
-}
 
-async updateValue(e) {
+  async updateValue(e) {
   const newValue = e.target.value;
-  if(this.state.value != undefined) {
+  if(this.state.value !== undefined) {
   await this.setState({value: newValue});
   this.props.onUpdatedValue(newValue);
-}
-}
+    }
+  }
 
   render(){
       return (

@@ -6,9 +6,9 @@ app.use(cors());
 app.use(express.json());
 
 let items = [
-    { id: 0, value: "To the dishes", done: false, progress: true },
+    { id: 0, value: "Do the dishes", done: false, progress: true },
     { id: 1, value: "Meditate", done: false, progress: false },
-    { id: 2, value: "Read a book", done: true, progress: false },
+    { id: 2, value: "Learn how to use todo-list", done: true, progress: false },
 ];
 
 let initialId = 2;
@@ -21,7 +21,6 @@ app.post("/items", (req, res) => {
     initialId = initialId + 1;
     let newItem = {...req.body, id: initialId}
     items.push(newItem);
-    console.log(items);
     return res.send(items);
 })
 
@@ -37,7 +36,6 @@ app.patch("/item/:i", (req, res) => {
         }
         return item;
     })
-   console.log(items);
    return res.send(items);
 })
 

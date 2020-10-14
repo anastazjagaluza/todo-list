@@ -10,7 +10,7 @@ export default class ListPage extends Component {
         }
     }
 
- async componentDidMount(){
+async componentDidMount(){
      let res = await fetch("http://localhost:8080/items");
      let items = await res.json();
      let inProgress = items.filter(item => item.progress)

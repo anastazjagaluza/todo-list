@@ -11,7 +11,7 @@ export default class ListPage extends Component {
         }
     }
 
- async componentDidMount(){
+async componentDidMount(){
      let res = await fetch("http://localhost:8080/items");
      let items = await res.json();
      this.setState({items: items});
@@ -38,6 +38,7 @@ async updateValue(v, i) {
     body: JSON.stringify({value: v})
    })
    let newItems = await res.json();
+   this.setState({items: newItems});
 }
 
 async updateDone(v, i) {
@@ -87,7 +88,8 @@ async newItem(v) {
     let newItems = await res.json();
     this.setState({items: newItems})
 }
-  render(){
+
+render(){
       const { status } = this.state;
       return (
          <div style={{
